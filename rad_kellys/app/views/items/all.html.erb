@@ -1,0 +1,14 @@
+<h2>All ITEMS for SALE</h2>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Category</th>
+    </tr>
+    <% @items.each do | item | %>
+    <tr>
+        <td><%= "#{item.name} #{item.price}"%></td>
+        <td>purchase =></td>
+    </tr>
+    <% end %>
+</table>

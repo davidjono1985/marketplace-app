@@ -1,8 +1,18 @@
-<h1> List of Items </h1>
+<h2>ITEMS</h2>
+<%= link_to "Sell Items", new_item_path()%>
 
+<table>
+    <tr>
+        <th>NAME</th>
+        <th>Actions</th>
+    </tr>
     <% @items.each do | item | %>
     <tr>
         <td><%= "#{item.name} #{item.category}"%></td>
-        <td>action</td>
+        <td><%= link_to "details", item_path(item.id)%></td>
+        <td><%= link_to "edit", edit_item_path(item.id)%></td>
+        <td><%= link_to "delete", items_path, method: :delete, 
+        data:{confirm: "Are you sure you want to delete #{item.name}"} %></td>
     </tr>
     <% end %>
+</table>

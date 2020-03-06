@@ -10,10 +10,16 @@
   </head>
 
   <body>
-      <%# added for devise %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
+        <%= render "shared/topnav"%>
+ 
+    <div class="container">
+    
+    <% if notice %>
+      <p class="alert alert-success" role="alert"><%= notice %></p>
+    <%end%>
+    <%if alert %>
+      <p class="alert alert-danger" role="alert"><%= alert %></p>
+    <%end%>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,8 @@
+<h1> List of Items </h1>
+
+    <% @items.each do | item | %>
+    <tr>
+        <td><%= "#{item.name} #{item.category}"%></td>
+        <td>action</td>
+    </tr>
+    <% end %>

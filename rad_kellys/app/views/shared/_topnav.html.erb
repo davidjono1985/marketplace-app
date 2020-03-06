@@ -1,0 +1,16 @@
+<header class="top-nav row align-items-end">
+<div class="logo">
+<h1><a href="/">RAD KELLY'S</a></h1>
+</div>
+<div class="col text-right">
+ <% if user_signed_in? %>
+   <div id="signout"><%= link_to 'Sign out', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
+   <div ><%= current_user.email %></div>
+    <% else %>
+   <p><%= link_to 'Sign In', new_user_session_path, class:"top-nav-link"%>
+   |
+   <%= link_to 'Sign Up', new_user_registration_path, class:"top-nav-link"%>
+   </p>
+ <% end %>
+ <div>
+</header>

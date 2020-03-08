@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/', to: 'pages#index', as: 'homepage'
     get '/about', to: 'pages#about', as: 'about'
     get '/option', to: 'pages#option', as: 'option'
+    get '/profile/:id', to: 'pages#profile', as: 'profile'
   
     #show list
     get '/items', to: 'items#index', as: 'items'
@@ -20,7 +21,6 @@ Rails.application.routes.draw do
     get '/items/new', to: 'items#new', as: 'new_item'
     post '/items', to: 'items#create'
   
- 
     # #Read items
     get '/items/:id', to: 'items#show', as: 'item'
  

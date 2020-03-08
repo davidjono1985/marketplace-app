@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
     def index
-        @items = Item.all
+        @items = current_user.items
 
     end
    
@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
     def create
       
         @items = Item.new(items_params)
+        @items.user_id = current_user.id
 
         if @items.valid? && @items.save
         #if its a post you do a redirect if its a view you do a render
@@ -57,7 +58,7 @@ class ItemsController < ApplicationController
     #anything bleow this is private and the user will not see it
     private
     def items_params
-    params.require(:items).permit(:name, :category, :colour, :texture, :days_to_cultivate, :price, :user_id)
+    params.require(:item).permit(:name, :category, :colour, :texture, :days_to_cultivate, :price)
     end
 
 

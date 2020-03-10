@@ -18,6 +18,8 @@
     <%= form.label :price %>
     <%= form.number_field :price %>
     <br />
+    <%= form.label :picture %>
+    <%= form.file_field :picture, accept: "image/png,image/jpeg,image/jpg" %>
     <%=form.submit "submit"%>
 
     <%end%>

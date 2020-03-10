@@ -35,8 +35,10 @@ Rails.application.routes.draw do
     #Delete items
     delete '/items/:id', to: 'items#destroy', as: 'destroy_item'
 
-
-
+    #order
+  get 'orders/new', to: "orders#new", as: "new_order"
+  get 'orders/complete/:id', to: "orders#complete", as: "completed_order"
+  get 'orders/receipt/:id', to: "orders#receipt", as: "purchase_receipt"
 
 
 

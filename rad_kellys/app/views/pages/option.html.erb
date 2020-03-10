@@ -1,6 +1,12 @@
 <H1>CHOOSE IF BUYER OR SELLER</H1>
 
+<% if user_signed_in? %>
+
 <h2><%=link_to 'SELLER', items_path%></h2>
 
+<h2><%=link_to 'BUYER', all_items_path%></h2>
+<%else%>
 
 <h2><%=link_to 'BUYER', all_items_path%></h2>
+
+<%end%>

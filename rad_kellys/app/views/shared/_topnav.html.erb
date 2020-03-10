@@ -1,12 +1,14 @@
-<header class="top-nav row align-items-end">
+<header>
 <div class="logo">
 <p class="text-center">
 
-<h1><a href="/">RAD KELLY'S</a></h1>
+<a href="/">
+<%= image_tag("rk2.png", :alt => "rss feed") %>
+</a>
 
 </p>
 </div>
-<div class="col text-right">
+<div class="col text-center">
  <% if user_signed_in? %>
    <div id="signout"><%= link_to 'Sign out', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
    <div ><%= current_user.email %></div>

@@ -12,3 +12,19 @@
  *
  */
  @import "bootstrap";
+
+ body {
+    min-height: 100vh;
+    background-image: url(image_path('background.jpg'));
+    background-repeat: repeat;
+    background-position: right bottom;
+    background-attachment: fixed;
+    color: rgb(184, 184, 19);
+    
+}
+
+.container{
+    background-color: rgb(17, 16, 16);
+    text-align: center;
+    opacity: 70%;
+}

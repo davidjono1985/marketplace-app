@@ -1,29 +1,16 @@
+<h2 class="title has-text-centered">All Items</h2>
 
-<h2>DASHBOARD</h2>
-
-<h4>YOUR ITEMS CURRENTLY FOR SALE</h4>
-
-
-<table>
-    <tr>
-        <th>NAME</th>
-        <th>Actions</th>
-    </tr>
-    <% @items.each do | item | %>
-    <tr>
-        <td><%= "#{item.name} #{item.category}" %></td>
-        <td><%= link_to "details", item_path(item.id)%></td>
-        <td><%= link_to "edit", edit_item_path(item.id)%></td>
-        <td><%= link_to "delete", items_path, method: :delete, 
-        data:{confirm: "Are you sure you want to delete #{item.name}"} %></td>
-    </tr>
-    <% end %>
-</table>
-
-<%= link_to "Sell Items", new_item_path()%>
-
-<h4>PREVIOUSLY SOLD ITEMS</h4>
-
-<h4>PREVIOUSLY PURCHASED ITEMS</h4>
-<%= link_to "Buy Something New", all_items_path()%>
-
+<div class ="items">
+<% if @items.length > 0 %>
+    <% @items.each do |item| %>
+            <div class="item-div">
+            
+                <p><%= link_to item.name, item_path(item) %></p>
+                <p><%= number_to_currency(item.price)%></p>
+            
+            </div>
+    <%end%>
+<%else%>
+<p>Currently no items to display!</p>
+<%end%>
+</div>

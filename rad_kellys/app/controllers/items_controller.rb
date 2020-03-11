@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
 
     def index
-        @items = current_user.items
+
+        @items = Item.all 
+    
 
     end
    
@@ -11,8 +13,29 @@ class ItemsController < ApplicationController
     end
 
 
-    def all
-        @items = Item.all 
+    def dashboard
+
+        @items = current_user.items
+     
+    end
+
+    def show
+        @items = Item.find(params[:id])
+        @can_add = !Order.contains?(current_user, @item)
+    end
+
+    def add
+        item = Item.find(params[:id])
+        current_user.items.push(item)
+        if current_user.save
+            flash[:notice] = "Added New Item"
+            redirect_to items_path
+        else
+            flash[:alert] = "Oops! There was a problem adding that book"
+            redirect_back(fallback_location: all_items_path)
+        end
+
+
     end
 
     def create
@@ -29,9 +52,7 @@ class ItemsController < ApplicationController
         end
     end 
 
-    def show
-        @items = Item.find(params[:id])
-    end
+
 
     def edit
         @items = Item.find(params[:id])

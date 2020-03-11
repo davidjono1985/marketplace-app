@@ -1,4 +1,12 @@
 <h2><%= "#{@items.name} #{@items.price}"%></h2>
+<% if user_signed_in?%>
+    <%if @can_add %>
+    <p><%= link_to "Add to my list", add_item_to_list_path(id: @item)%> </p>
+    <% else %>
+    <p> Remove </p>
+    <% end %>
+   <% end %>
+
 <p>Name: <%= @items.user.email%></p>
 <p>Email: <%= @items.category%></p>
 <%= link_to 'Back', :back %>

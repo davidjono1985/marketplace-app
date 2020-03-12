@@ -15,7 +15,8 @@
 
  body {
     min-height: 100vh;
-    background-image: url(image_path('background.jpg'));
+    // background-image: url(image_path('background.jpg'));
+    background-color: whitesmoke;
     background-repeat: repeat;
     background-position: right bottom;
     background-attachment: fixed;

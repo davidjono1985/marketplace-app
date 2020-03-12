@@ -8,8 +8,7 @@ class Order < ApplicationRecord
   return current_user.items.where(id: item).length > 0
   
   
-  
-      end
+  end
   
   
   

@@ -1,13 +1,25 @@
 <h2><%= "#{@items.name} #{@items.price}"%></h2>
 <% if user_signed_in?%>
     <%if @can_add %>
-    <p><%= link_to "Add to my list", add_item_to_list_path(id: @item)%> </p>
+        <p><%= link_to "Add to my wish list", add_item_to_list_path(@items)%> </p>
     <% else %>
-    <p> Remove </p>
+        <p><%= link_to 'Remove from my wish list', remove_item_from_list_path(@items)%> </p>
     <% end %>
    <% end %>
 
 <p>Name: <%= @items.user.email%></p>
 <p>Email: <%= @items.category%></p>
+<%= image_tag @itmes.picture, class: 'img-thumbnail box', width: 120 if @items.picture.attached? %>
+
+
+<% if @items.price %>
+    <p>
+        <%= number_to_currency @items.price %>
+        <%= link_to "Buy Now", new_order_path(item_id: @items.id), class: "btn btn-dark"%>
+    </p>
+<% end %>
+
+
+
 <%= link_to 'Back', :back %>
 

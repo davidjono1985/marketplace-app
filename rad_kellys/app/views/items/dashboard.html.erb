@@ -10,20 +10,22 @@
         <th>Actions</th>
     </tr>
     <% @items.each do | item | %>
+        <%= debug item.picture.attached? %>
     <tr>
-        <td><%= "#{item.name} #{item.category}" %></td>
+        <td><%= "#{item.name} #{item.category} " %></td>
+
+
+        <td><%= image_tag item.picture, class: 'img-thumbnail box', width: 120 if item.picture.attached? %></td>
+        
         <td><%= link_to "details", item_path(item.id)%></td>
         <td><%= link_to "edit", edit_item_path(item.id)%></td>
-        <td><%= link_to "delete", items_path, method: :delete, 
+        <td><%= link_to "delete", item, method: :delete, 
         data:{confirm: "Are you sure you want to delete #{item.name}"} %></td>
     </tr>
     <% end %>
 </table>
 
-<%= link_to "Sell Items", new_item_path()%>
-
-<h4>PREVIOUSLY SOLD ITEMS</h4>
-
-<h4>PREVIOUSLY PURCHASED ITEMS</h4>
+<h2><%=link_to 'MY WISHLIST', orders_path()%></h2>
+<%= link_to "SELL ITEM", new_item_path()%>
 <%= link_to "Buy Something New", all_items_path()%>
 

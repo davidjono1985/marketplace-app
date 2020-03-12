@@ -1,26 +1,42 @@
 <div>
 <%= form_with model: @items do |form| %>
+    <p>
     <%= form.label :name %>
     <%= form.text_field :name %>
-    <br />
-     <%= form.label :category %>
+    </p>
+
+    <p>
+    <%= form.label :category %>
     <%= form.text_field :category %>
-    <br />
-     <%= form.label :colour %>
+    </p>
+    
+    <p>
+    <%= form.label :colour %>
     <%= form.text_field :colour %>
-    <br />
+    </p>
+    
+    <p>    
     <%= form.label :texture %>
     <%= form.text_field :texture %>
-    <br />
-     <%= form.label :days_to_cultivate %>
+    </p>
+    
+    <p>
+    <%= form.label :days_to_cultivate %>
     <%= form.text_field :days_to_cultivate %>
-    <br />
+    </p>
+    
+    <p>
     <%= form.label :price %>
-    <%= form.number_field :price %>
-    <br />
+    <%= form.number_field :price, step: '0.01'  %>
+    </p>
+    
+    <p>    
     <%= form.label :picture %>
     <%= form.file_field :picture, accept: "image/png,image/jpeg,image/jpg" %>
+    </p>
+    
+    <p>  
     <%=form.submit "submit"%>
-
+    </p>
     <%end%>
 </div>

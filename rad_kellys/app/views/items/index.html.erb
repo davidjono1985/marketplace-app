@@ -1,18 +1,22 @@
 <h2 class="title has-text-centered">All Items</h2>
 
-<div class ="items">
-<% if @items.length > 0 %>
-    <% @items.each do |item| %>
-            <div class="item-div">
+<div class ="row-flex">
+
+    <% if @items.length > 0 %>
+            <% @items.each do |item| %>
+                <div class="item-div">
             
-                <p><%= link_to item.name, item_path(item) %></p>
-                <p><%= number_to_currency(item.price)%></p>
-                <td><%= image_tag item.picture, class: 'img-thumbnail box', width: 120 if item.picture.attached? %></td>
-               
+
+                    <td><%= image_tag item.picture, class: 'img-thumbnail box', width: 237 if item.picture.attached? %></td>
+                    <p><%= link_to item.name, item_path(item) %></p>
+                    <p>CATEGORY: <%= link_to item.category, item_path(item) %></p>
+                    <p>COLOUR: <%= link_to item.colour, item_path(item) %></p>
+                    <p>PRICE: <%= number_to_currency(item.price)%></p>
             
-            </div>
+                </div>  
+
+            <%end%>
+        <%else%>
+        <p>Currently no items to display!</p>
     <%end%>
-<%else%>
-<p>Currently no items to display!</p>
-<%end%>
 </div>

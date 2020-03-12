@@ -1,14 +1,19 @@
-<h2><%=link_to 'About', about_path%></h2> 
+  <div class="landing">
+    <p class="text-center">
+      
+    
+    <p>
+          <%= image_tag "nk.png", id: "landing-image" %>
+      </p>
+My beard was the first armour I created for my face.  <br>
+I wish I had sold it instead of doing all of that criming and gun popping.<br>
+    Ned Kelly 1880
+    </p>
+  </div>
 
-<h2><%=link_to 'ENTER', option_path%></h2>
+<h1><%=link_to 'ENTER', option_path%></h1>
 
- <% if user_signed_in? %>
-   <div id="signout"><%= link_to 'Sign out', destroy_user_session_path, method: "delete"%></div>
-   <div ><%= current_user.email %></div>
-    <% else %>
-   <p><%= link_to 'Sign In', new_user_session_path%>
-   |
-   <%= link_to 'Sign Up', new_user_registration_path%>
-   </p>
- <% end %>
- <div>
+
+
+
+

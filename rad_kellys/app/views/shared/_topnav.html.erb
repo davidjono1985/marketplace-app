@@ -1,18 +1,31 @@
-<header>
-<div class="logo">
-<h1>RAD KELLYS </h1>
+<nav id = "top-nav">
+  <div class="logo-image">
+ 
+    <p class="text-center", id= "header-text">
+        <a href="items/all" class="btn btn-dark" role="button">Buy A Beard</a>
+      <a href="/">
+          <%= image_tag "rk2.png", id: "logo-image" %>
+      </a>
+      <%if user_signed_in?%>
+     <a href="/items" class="btn btn-dark" role="button">Sell A Beard</a>
+      <%else%>
+      <a href="/about" class="btn btn-dark" role="button">Learn More</a> 
+    <%end%>
+    </p>
+   
+  </div>
 
-</p>
-</div>
-<div class="col text-center">
- <% if user_signed_in? %>
-   <div id="signout"><%= link_to 'Sign out', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
-   <div ><%= current_user.email %></div>
+
+  <div class="col text-center">
+    <% if user_signed_in? %>
+   
+          <div>signed in as <%= current_user.first_name %></div>
+          <div id="signout"><%= link_to 'Sign out', destroy_user_session_path, method: "delete",class:"top-nav-link"%></div>
     <% else %>
-   <p><%= link_to 'Sign In', new_user_session_path, class:"top-nav-link"%>
-   |
-   <%= link_to 'Sign Up', new_user_registration_path, class:"top-nav-link"%>
-   </p>
- <% end %>
- <div>
-</header>
+          <p><%= link_to 'Sign In', new_user_session_path, class:"top-nav-link"%>
+          |
+          <%= link_to 'Sign Up', new_user_registration_path, class:"top-nav-link"%>
+          </p>
+    <% end %>
+  <div>
+</nav>

@@ -11,21 +11,117 @@
  * It is generally better to create a new file per style scope.
  *
  */
- @import "bootstrap";
 
+
+ @import "bootstrap";
+ @import url("https://fonts.googleapis.com/css?family=Nosifer|Shojumaru&display=swap");
+ $primary-color:rgb(185, 178, 182);
+ $secondary-color: rgb(182, 137, 13);
+ 
  body {
     min-height: 100vh;
-    // background-image: url(image_path('background.jpg'));
-    background-color: whitesmoke;
+    background-image: url(image_path('background.jpg'));
     background-repeat: repeat;
     background-position: right bottom;
     background-attachment: fixed;
-    color: rgb(236, 196, 18);
-    
+    color: $primary-color;  
+    margin-bottom: 100px;   
 }
 
 .container{
     background-color: rgb(17, 16, 16);
     text-align: center;
     opacity: 70%;
+    margin-bottom: 50px;
+    margin-top: 30px;
 }
+
+#logo-image {
+    width: 600px;
+    height: 85vhpx;
+    margin-left: 15px;
+    opacity: 65%;
+}
+
+#landing-image {
+    width: 200px;
+    height: 85vhpx;
+    margin-top: 30px;
+
+}
+
+
+
+#login-page {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    input {
+        border-style: solid;
+        border-color: $primary-color;
+    }
+}
+
+
+.row-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+
+.item {
+    display: flex;
+}
+
+.item-div {
+    padding: 20px;
+}
+
+.items-image {
+    height: 150px;
+}
+
+.item-image {
+    max-height: 300px;
+}
+/* Place the navbar at the bottom of the page, and make it stick */
+.navbar {
+    background-color: rgb(17, 16, 16);
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .navbar a:hover {
+    background-color: rgb(197, 161, 106);
+    color: black;
+  }
+  
+.copyright {
+opacity: 40%;
+
+}
+
+#button{
+    text-align: right;
+    padding-bottom: 40px;
+    margin-right: 40px
+
+}
+  

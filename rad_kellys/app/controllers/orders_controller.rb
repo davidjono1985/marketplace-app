@@ -51,6 +51,9 @@ class OrdersController < ApplicationController
       @orders.item_id = item_id
       @orders.save
       
+      @item = Item.find(item_id)
+      @item.sold = true
+      @item.save
       render plain: "Success"
 
     end

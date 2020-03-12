@@ -9,17 +9,27 @@
 
 <p>Name: <%= @items.user.email%></p>
 <p>Email: <%= @items.category%></p>
-<%= image_tag @itmes.picture, class: 'img-thumbnail box', width: 120 if @items.picture.attached? %>
 
 
-<% if @items.price %>
+<%# Checks if user is signed in, AND item has a price allocated, 
+AND the item doesn't belong to the user, AND the item has not been sold,
+if so, shows link to buy item %>
+
+<% if user_signed_in?%>
+    <% if @items.price %>
     <p>
         <%= number_to_currency @items.price %>
-        <%= link_to "Buy Now", new_order_path(item_id: @items.id), class: "btn btn-dark"%>
+            <% if current_user.id != @items.user.id %>
+                <% if @items.sold == false %>
+                   <%= link_to "Buy Now", new_order_path(item_id: @items.id), class: "btn btn-dark"%>
+                <%end%>
+            <%end%>
     </p>
 <% end %>
-
-
+<% end %>
+<% if !user_signed_in?%>
+<h2>SIGN IN TO PURCHASE THIS ITEM!</h2>
+<% end %>
 
 <%= link_to 'Back', :back %>
 

@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
         @items = Item.new(items_params)
         @items.user_id = current_user.id
         @items.picture.attach(params[:item][:picture])
+        @items.sold = false
 
         if @items.valid? && @items.save
         #if its a post you do a redirect if its a view you do a render

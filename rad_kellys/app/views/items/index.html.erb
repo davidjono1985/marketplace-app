@@ -7,6 +7,7 @@
             
                 <p><%= link_to item.name, item_path(item) %></p>
                 <p><%= number_to_currency(item.price)%></p>
+                <td><%= image_tag item.picture, class: 'img-thumbnail box', width: 120 if item.picture.attached? %></td>
                
             
             </div>
